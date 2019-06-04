@@ -1,0 +1,25 @@
+plugins {
+    id 'java'
+    id 'jacoco'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    def junitVersion = '5.4.2'
+
+    testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
+}
+
+sourceCompatibility = '1.8'
+targetCompatibility = '1.8'
+
+test {
+    useJUnitPlatform()
+    testLogging {
+        events "passed", "skipped", "failed"
+    }
+}
