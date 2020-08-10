@@ -14,12 +14,22 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
 }
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+sourceCompatibility = '14'
+targetCompatibility = '14'
+
+tasks.withType(JavaCompile) {
+    options.compilerArgs.add("-Xlint:all")
+    options.compilerArgs.add("--enable-preview")
+
+    options.incremental = true
+}
 
 test {
     useJUnitPlatform()
     testLogging {
-        events "passed", "skipped", "failed"
+        events "skipped", "failed"
+        exceptionFormat "full"
     }
+    maxParallelForks = Runtime.runtime.availableProcessors().intdiv(2) ?: 1
+    jvmArgs("--enable-preview")
 }
