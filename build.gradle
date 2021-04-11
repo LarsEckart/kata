@@ -9,13 +9,10 @@ repositories {
 
 dependencies {
 
-    def junitVersion = '5.7.0'
+    def junitVersion = '5.7.1'
 
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
 }
-
-sourceCompatibility = '14'
-targetCompatibility = '14'
 
 tasks.withType(JavaCompile) {
     options.compilerArgs.add("-Xlint:all")
