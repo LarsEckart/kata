@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
 
-    def junitVersion = '5.7.1'
+    def junitVersion = '5.7.2'
 
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
 }
